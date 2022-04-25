@@ -218,13 +218,13 @@ class MainThread(QThread):
 
         return self.query
 
-    def sendmail(self,to,content):
+    def send_mail(self,to,content):
         # noinspection PyUnresolvedReferences
         server =smtplib.SMTP("smtp.gmail.com",587)
         server.ehlo()
         server.starttls()
-        server.login("jaibholeki701@gmail.com","8527744381")
-        server.sendmail("jaibhokeki701@gmail.com",to,content)
+         server.login("<here your email>","<here your email passowrd>")
+        server.sendmail("<here your email>",to,content)
         server.close()
 
     def pdfreader(self):
@@ -343,8 +343,8 @@ class MainThread(QThread):
                 try:
                     speak("what should i say?")
                     content=self.takecommand()
-                    to="amit100lanki701@gmail.com"
-                    self.sendmail(to,content)
+                    to="<here sender email>"
+                    self.send_mail(to,content)
                     speak("email send sucessfully")
                 except Exception as e:
                     speak(e)
